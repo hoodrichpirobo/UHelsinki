@@ -10,7 +10,7 @@
  */
 public class Fitbyte {
     
-    int age, restingHeartRate;
+    private int age, restingHeartRate;
     
     public Fitbyte(int age, int restingHeartRate){
         this.age = age;
