@@ -25,6 +25,7 @@ public class ShanghaiApplication extends Application {
         
         LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setTitle("University of Helsinki, Shanghai ranking");
+        lineChart.setLegendVisible(false); //this makes the ugly zero dissapear
         
         XYChart.Series helData = new XYChart.Series();
         
