@@ -28,8 +28,8 @@ public class CollageApplication extends Application {
         WritableImage targetImage = new WritableImage(width, height);
         PixelWriter imageWriter = targetImage.getPixelWriter();
 
-        for (int y = 0; y < height; y += 2) {
-            for (int x = 0; x < width; x += 2) {
+        for (int y = 0; y < height; y += 2) {                                //solo funciona si haces y += 2
+            for (int x = 0; x < width; x += 2) {                            //no funciona si haces x++
                 Color color = imageReader.getColor(x, y);
                 double red = 1.0 - color.getRed();
                 double green = 1.0 - color.getGreen();
@@ -38,10 +38,10 @@ public class CollageApplication extends Application {
 
                 Color newColor = new Color(red, green, blue, opacity);
 
-                imageWriter.setColor(x / 2, y / 2, newColor);
-                imageWriter.setColor(width / 2 + x / 2, y / 2, newColor);
-                imageWriter.setColor(x / 2, height / 2 + y / 2, newColor);
-                imageWriter.setColor(width / 2 + x / 2, height / 2 + y / 2, newColor);
+                imageWriter.setColor(x / 2, y / 2, newColor);                           //(0, 0)
+                imageWriter.setColor(width / 2 + x / 2, y / 2, newColor);               //(width/2, 0)
+                imageWriter.setColor(x / 2, height / 2 + y / 2, newColor);              //(0, height/2)
+                imageWriter.setColor(width / 2 + x / 2, height / 2 + y / 2, newColor);  //(width/2, height/2)
             }
         }
 
